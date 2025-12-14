@@ -22,6 +22,8 @@ function Box({ parrentWidth }: Readonly<BoxProps>) {
       variants={{
         rest: { rotate: 0, x: 0 },
         hover: { rotate: 360, x: parrentWidth - 44.5 },
+        focus: { rotate: 360, x: parrentWidth - 44.5 },
+        tap: { rotate: 360, x: parrentWidth - 44.5 },
       }}
       transition={{
         type: "tween",
@@ -94,9 +96,11 @@ function Button({
       <motion.a
         href={href || "#"}
         ref={anchorRef}
-        className="border-2 border-zinc-600 bg-zinc-800 hover:bg-zinc-900 font-medium p-0.5 rounded-xl cursor-pointer h-11 relative flex items-center justify-end px-4 shadow-sm shadow-zinc-800/50 transition-colors duration-200 ease-in-out"
+        className="border-2 border-zinc-600 bg-zinc-800 hover:bg-zinc-900 focus:bg-zinc-900 font-medium p-0.5 rounded-xl cursor-pointer h-11 relative flex items-center justify-end px-4 shadow-sm shadow-zinc-800/50 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-zinc-800"
         initial="rest"
         whileHover="hover"
+        whileFocus="focus"
+        whileTap="tap"
         animate="rest"
         {...props}
       >
@@ -105,6 +109,8 @@ function Button({
           variants={{
             rest: { x: 0, marginLeft: 32 },
             hover: { x: -32, marginLeft: 32 },
+            focus: { x: -32, marginLeft: 32 },
+            tap: { x: -32, marginLeft: 32 },
           }}
         >
           {children}
@@ -116,9 +122,11 @@ function Button({
   return (
     <motion.button
       ref={buttonRef}
-      className="border-2 border-zinc-600 bg-zinc-800 hover:bg-zinc-900 font-medium p-0.5 rounded-xl cursor-pointer h-11 relative flex items-center justify-end px-4 shadow-sm shadow-zinc-800/50 transition-colors duration-200 ease-in-out"
+      className="border-2 border-zinc-600 bg-zinc-800 hover:bg-zinc-900 focus:bg-zinc-900 font-medium p-0.5 rounded-xl cursor-pointer h-11 relative flex items-center justify-end px-4 shadow-sm shadow-zinc-800/50 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-zinc-800"
       initial="rest"
       whileHover="hover"
+      whileFocus="focus"
+      whileTap="tap"
       animate="rest"
       {...props}
     >
@@ -127,6 +135,8 @@ function Button({
         variants={{
           rest: { x: 0, marginLeft: 32 },
           hover: { x: -32, marginLeft: 32 },
+          focus: { x: -32, marginLeft: 32 },
+          tap: { x: -32, marginLeft: 32 },
         }}
       >
         {children}
